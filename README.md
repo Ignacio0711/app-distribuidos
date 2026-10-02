@@ -16,14 +16,16 @@ Primero hay que descombrimir el archivo y luego importar en la aplicacion de Spr
 
 ### 3.Creación de la Estructura de Paquetes
 Con la finalidad de respetar estrictamente la arquitectura en capas, es necesario crear 4 paquetes dentro de la ruta principal com.distribuidos.autos.
-![alt text](image.png)
+
+![alt text](<Captura de pantalla 2026-10-02 145823.png>)
 
 ### 4.Creación de la Entidad Auto.java
 Vamos a empezar con el modelado de Auto, la clase Auto.java debe estar en el paquete Model. Dentro del modelo de paquete, se procederá a definir la clase de dominio que representará la tabla dentro de la base de datos. En este caso dado que se trata del primer microservicio que estamos haciendo utilizaremos únicamente tipos de datos elementales para facilitar la comprensión.
 
 Seleccione Nuevo > Clase Java e ingrese el nombre Auto .
 
-![alt text](image-1.png)
+![alt text](<Captura de pantalla 2026-10-02 151559.png>)
+
 
 ``` java
 package com.distribuidos.autos.Model;
@@ -77,7 +79,8 @@ public class Auto {
 ### 5. Creación de Interfaz de Repositorio
 Esta clase es escencial ya que la calse hereda los metodos de Jpa para poder utilizarlos.
 
-![alt text](image-2.png)
+![alt text](<Captura de pantalla 2026-10-02 153152.png>)
+
 ```java
 package com.distribuidos.autos.Repository;
 
@@ -94,7 +97,9 @@ public interface IAutoRepository extends JpaRepository<Auto, Long>{
 
 ### 6. Creación de Interfaz de Servicio
 En esta interfaz, creamos las firmas de los metodos.
-![alt text](image-3.png)
+
+![alt text](<Captura de pantalla 2026-10-02 153733.png>)
+
 ```java
 package com.distribuidos.autos.Service;
 
@@ -111,7 +116,7 @@ public interface IAutoService {
 ### 7. Implementación de Interfaz de Servicio
 En el mismo paquete creamos una clase que va a imlementar los metodos de la interfaz. 
 
-![alt text](image-4.png)
+![alt text](<Captura de pantalla 2026-10-02 154104.png>)
 ```java
 package com.distribuidos.autos.Service;
 
@@ -146,7 +151,7 @@ public class AutoService implements IAutoService{
 En esta clase se crear los metodos POST y GET que son petisiones .
 Se realiaza un inyeccion de depedencia de la implementacion para poder llamar a los metodos con su logica.
 
-![alt text](image-5.png)
+![alt text](<Captura de pantalla 2026-10-02 154648.png>)
 
 ```java
 package com.distribuidos.autos.Controller;
@@ -185,13 +190,9 @@ public class AutoController {
 ### 9. Configuración de propiedades y XAMMP
 En xampp creamos la base de datos
 
-![alt text](image.png)
+![alt text](<Captura de pantalla 2026-10-02 155930.png>)
 
 Nos dirigimos a Spring Boot y en application.properties configueramos el puerto y la coneccion con la base de datos.
-
-![alt text](<Captura de pantalla 2026-10-02 155346.png>)
-
-
 
 ```java
 spring.application.name=autos
@@ -202,28 +203,38 @@ spring.datasource.username=root
 spring.datasource.password=
 ```
 
+
 # GUIA DE APLICACION CON POSTAMAN:
 
 ### 1. Iniciar el proyecto.
 
-![alt text](image-4.png)
+Dar de alta el proyecto.
+
+![alt text](<Captura de pantalla 2026-10-02 162206.png>)
+
 
 ### 2.Ingresar la URL con su petición correspondiente.
 
 En la aplicacion de Postman, escribir el puerto de la cofiguracion del application.properties http://localhost:8080 y agregarle la direccion que se encuentra en el Controller en el metodo POST /auto/crear.
 Entonces quedaria asi http://localhost:8080/auto/crear, seleccionar el metodo correspondiente (POST).
- 
- ![alt text](image-2.png)
+
+
+ ![alt text](<Captura de pantalla 2026-10-02 161706.png>)
+
 
 ### 3. Formato JSON.
 En el apartado de Body utilizar el formato JSON para crear un nuevo objeto (auto) con sus atrubutos correspondientes.
 Ademas debe estar seleccionado raw y el formato JSON.
-Y por ultimo precionar el boton Send
-![alt text](image-3.png)
+Y por ultimo precionar el boton Send.
+
+![alt text](<Captura de pantalla 2026-10-02 161046.png>)
+
 
 ### 4.Verificar que se creo el objeto.
 En xampp nos dirigimos a la base de daros y verificamos que este la tabla con el objeto creado.
-![alt text](image-5.png)
+
+![alt text](<Captura de pantalla 2026-10-02 163414.png>)
+
 
 ### 4.Llamar a la lista de Autos.
 
@@ -234,8 +245,8 @@ Se escribe el mismo puerto pero se cambian el la direccion del Controller y se p
 
  En el Body hay que seleccionar la casilla none.
 
-![alt text](image-6.png)
+![alt text](<Captura de pantalla 2026-10-02 163921.png>)
 
 Al precionar el boton Send por medio de la direccion, ingresa al metodo de listar los autos creados y los muestra en formato JSON.
 
-![alt text](image-9.png)
+![alt text](<Captura de pantalla 2026-10-02 164321.png>)
